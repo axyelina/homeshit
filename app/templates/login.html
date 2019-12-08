@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %} 
+    <h1 align="center" style="color: #5e9ca0;"><span style="color: #993366;">ЛЕТСГОШЕЧКИ!</span></h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <center>
+        <p>
+            <span style="color: #0000ff;"><strong>{{form.username.label}}</strong></span><br>
+            {{ form.username(size=32) }}
+            {% for error in form.username.errors %}
+            <br>
+            <span style="color: purple;">[{{ error }}]</span>
+            {% endfor %}
+            </br>
+        </p>
+        <p>
+            <span style="color: #0000ff;"><strong>{{ form.password.label }}</strong></span><br>
+            {{ form.password(size=32) }}
+            {% for error in form.password.errors %}
+            <br>
+            <span style="color: purple;">[{{ error }}]</span>
+            {% endfor %}
+            </br>
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
+        </center>
+    </form>
+{% endblock %}

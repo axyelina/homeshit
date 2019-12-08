@@ -1,0 +1,27 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - linochka</title>
+        {% else %}
+        <title>linochka</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            Мини Навигация:
+            <a href="/index">Домик</a>
+            <a href="/login">Логинчик</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
